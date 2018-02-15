@@ -33,9 +33,12 @@
                         </a>
 
                         <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">
+                                编辑资料
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                 退出登录
                             </a>
 
