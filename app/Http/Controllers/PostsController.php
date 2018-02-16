@@ -45,7 +45,8 @@ class PostsController extends Controller
 	public function edit(Post $post)
 	{
         $this->authorize('update', $post);
-		return view('posts.create_and_edit', compact('post'));
+        $categories = Category::all();
+		return view('posts.create_and_edit', compact('post', 'categories'));
 	}
 
 	public function update(PostRequest $request, Post $post)
