@@ -1,4 +1,4 @@
-<footer class="footer fixed-bottom">
+<footer class="footer mt-5">
     <div class="container">
         <p class="pull-left">
             由 <a href="http://leantheme.com/" target="_blank">LeanTheme</a> 设计和编码 <span style="color: #e27575;font-size: 14px;">❤</span>
