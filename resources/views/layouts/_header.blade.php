@@ -38,6 +38,7 @@
                         </a>
 
                         <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">个人中心</a>
                             <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">
                                 编辑资料
                             </a>
