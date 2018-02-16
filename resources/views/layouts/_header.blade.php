@@ -14,7 +14,12 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-
+                <li class="nav-item {{ active_class(if_route('posts.index')) }}">
+                  <a class="nav-link" href="{{ route('posts.index') }}">文章</a>
+                </li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}">
+                  <a class="nav-link" href="{{ route('categories.show', 1) }}">未分类</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

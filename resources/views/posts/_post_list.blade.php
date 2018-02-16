@@ -21,7 +21,7 @@
 
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $post->category->name }}">
+                        <a href="{{ route('categories.show', $post->category->id) }}" title="{{ $post->category->name }}">
                             <span class="fa fa-folder-open" aria-hidden="true"></span>
                              {{ $post->category->name }}
                         </a>
