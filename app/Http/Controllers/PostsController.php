@@ -14,9 +14,9 @@ class PostsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request, Post $post)
 	{
-        $posts = Post::with('user', 'category')->paginate(30);
+        $posts = $post->withOrder($request->order)->paginate(20);
 		return view('posts.index', compact('posts'));
 	}
 
@@ -33,7 +33,7 @@ class PostsController extends Controller
 	public function store(PostRequest $request)
 	{
 		$post = Post::create($request->all());
-		return redirect()->route('posts.show', $post->id)->with('message', 'Created successfully.');
+		return redirect()->route('posts.show', $post->id)->with('message', '创建成功！');
 	}
 
 	public function edit(Post $post)
