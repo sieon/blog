@@ -29,6 +29,11 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
                 @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('posts.create') }}">
+                            创建文章
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="user-avatar float-left" style="margin-right:8px; margin-top:-5px;">

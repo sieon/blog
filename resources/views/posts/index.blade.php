@@ -26,6 +26,9 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3">
+        @include('posts._sidebar')
+    </div>
 </div>
 
 @endsection
