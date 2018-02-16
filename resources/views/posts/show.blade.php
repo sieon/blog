@@ -43,15 +43,23 @@
                     {!! $post->content !!}
                 </div>
 
-                <div class="operate">
-                    <hr>
-                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs" role="button">
-                        <i class="fa fa-edit"></i> 编辑
-                    </a>
-                    <a href="#" class="btn btn-default btn-xs" role="button">
-                        <i class="fa fa-trash"></i> 删除
-                    </a>
-                </div>
+                @can('update', $post)
+                    <div class="operate">
+                        <hr>
+                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs pull-left" role="button">
+                            <i class="fa fa-edit"></i> 编辑
+                        </a>
+
+                        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-default btn-xs pull-left" style="margin-left: 6px">
+                                <i class="fa fa-trash"></i>
+                                删除
+                            </button>
+                        </form>
+                    </div>
+                @endcan
 
             </div>
         </div>
