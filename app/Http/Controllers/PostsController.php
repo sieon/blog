@@ -53,7 +53,7 @@ class PostsController extends Controller
 		$this->authorize('update', $post);
 		$post->update($request->all());
 
-		return redirect()->route('posts.show', $post->id)->with('message', 'Updated successfully.');
+		return redirect()->route('posts.show', $post->id)->with('message', '更新成功！');
 	}
 
 	public function destroy(Post $post)
@@ -61,6 +61,6 @@ class PostsController extends Controller
 		$this->authorize('destroy', $post);
 		$post->delete();
 
-		return redirect()->route('posts.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('posts.index')->with('message', '删除成功！');
 	}
 }

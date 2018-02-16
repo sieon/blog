@@ -1,62 +1,60 @@
 @extends('layouts.app')
 
+@section('title', $post->title)
+@section('description', $post->excerpt)
+
 @section('content')
 
-<div class="container">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1>Post / Show #{{ $post->id }}</h1>
-            </div>
+<div class="row mt-4">
 
-            <div class="panel-body">
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a class="btn btn-link" href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-backward"></i> Back</a>
-                        </div>
-                        <div class="col-md-6">
-                             <a class="btn btn-sm btn-warning pull-right" href="{{ route('posts.edit', $post->id) }}">
-                                <i class="glyphicon glyphicon-edit"></i> Edit
-                            </a>
-                        </div>
+    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    作者：{{ $post->user->name }}
+                </div>
+                <hr>
+                <div class="media">
+                    <div align="center">
+                        <a href="{{ route('users.show', $post->user->id) }}">
+                            <img class="thumbnail img-fluid" src="{{ $post->user->avatar }}" width="300px" height="300px">
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <label>Title</label>
-<p>
-	{{ $post->title }}
-</p> <label>Content</label>
-<p>
-	{{ $post->content }}
-</p> <label>User_id</label>
-<p>
-	{{ $post->user_id }}
-</p> <label>Category_id</label>
-<p>
-	{{ $post->category_id }}
-</p> <label>Comment_count</label>
-<p>
-	{{ $post->comment_count }}
-</p> <label>View_count</label>
-<p>
-	{{ $post->view_count }}
-</p> <label>Last_comment_user_id</label>
-<p>
-	{{ $post->last_comment_user_id }}
-</p> <label>Order</label>
-<p>
-	{{ $post->order }}
-</p> <label>Excerpt</label>
-<p>
-	{{ $post->excerpt }}
-</p> <label>Slug</label>
-<p>
-	{{ $post->slug }}
-</p>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-content">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center">
+                    {{ $post->title }}
+                </h1>
+
+                <div class="article-meta text-center">
+                    {{ $post->created_at->diffForHumans() }}
+                    ⋅
+                    <span class="fa fa-comment" aria-hidden="true"></span>
+                    {{ $post->comment_count }}
+                </div>
+
+                <div class="post-content">
+                    {!! $post->content !!}
+                </div>
+
+                <div class="operate">
+                    <hr>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs" role="button">
+                        <i class="fa fa-edit"></i> 编辑
+                    </a>
+                    <a href="#" class="btn btn-default btn-xs" role="button">
+                        <i class="fa fa-trash"></i> 删除
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-
-@endsection
+@stop
