@@ -3,7 +3,7 @@
 <ul class="list-group list-group-flush mb-3">
     @foreach ($posts as $post)
         <li class="list-group-item">
-            <a href="{{ route('posts.show', $post->id) }}">
+            <a href="{{ $post->link() }}">
                 {{ $post->title }}
             </a>
             <span class="meta pull-right">
